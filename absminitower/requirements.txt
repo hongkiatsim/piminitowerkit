@@ -1,0 +1,4 @@
+rpi_ws281x
+luma.oled
+psutil
+paho-mqtt
