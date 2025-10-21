@@ -1,0 +1,15 @@
+{
+  "name": "GeeekPi ABS Mini Tower Kit",
+  "version": "1.0",
+  "slug": "absminitower",
+  "description": "Fan & OLED controller for GeeekPi ABS Mini Tower",
+  "startup": "services",
+  "boot": "auto",
+  "host_network": true,
+  "privileged": ["SYS_ADMIN", "DAC_READ_SEARCH"],
+  "devices": ["/dev/i2c-1", "/dev/gpiomem"],
+  "options": {},
+  "schema": {},
+  "arch": ["armv7", "aarch64"],
+  "image": "local/absminitower"
+}
