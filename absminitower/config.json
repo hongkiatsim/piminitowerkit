@@ -1,15 +1,29 @@
 {
-  "name": "GeeekPi ABS Mini Tower Kit",
-  "version": "1.0",
-  "slug": "absminitower",
-  "description": "Fan & OLED controller for GeeekPi ABS Mini Tower",
-  "startup": "services",
+  "name": "ABS Mini Tower Kit",
+  "version": "1.0.0",
+  "slug": "absminitowerkit",
+  "description": "Driver for the ABS Mini Tower Kit hardware (GeeekPi)",
+  "arch": ["armv7", "aarch64", "amd64"],
+  "startup": "before",
   "boot": "auto",
-  "host_network": true,
-  "privileged": ["SYS_ADMIN", "DAC_READ_SEARCH"],
+  "options": {
+    "mqtt_broker": "core-mosquitto",
+    "mqtt_topic": "absminitowerkit",
+    "oled_i2c_bus": "1",
+    "oled_i2c_addr": "0x3C",
+    "led_data_pin": "18",
+    "led_count": 30
+  },
+  "schema": {
+    "mqtt_broker": "str",
+    "mqtt_topic": "str",
+    "oled_i2c_bus": "str",
+    "oled_i2c_addr": "str",
+    "led_data_pin": "str",
+    "led_count": "int"
+  },
+  "host_network": false,
+  "privileged": true,
   "devices": ["/dev/i2c-1", "/dev/gpiomem"],
-  "options": {},
-  "schema": {},
-  "arch": ["armv7", "aarch64"],
-  "image": "local/absminitower"
+  "environment": {}
 }
